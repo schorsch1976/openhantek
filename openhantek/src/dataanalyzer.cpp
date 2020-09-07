@@ -36,7 +36,6 @@
 #include "helper.h"
 #include "settings.h"
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // class HorizontalDock
 /// \brief Initializes the buffers and other variables.
@@ -225,11 +224,11 @@ void DataAnalyzer::run() {
 						break;
 					case Dso::WINDOW_BARTLETT:
 						for(unsigned int windowPosition = 0; windowPosition < this->lastBufferSize; windowPosition++)
-							*(this->window + windowPosition) = 2.0 / windowEnd * (windowEnd / 2 - abs(windowPosition - windowEnd / 2));
+                            *(this->window + windowPosition) = 2.0 / windowEnd * (windowEnd / 2 - abs(static_cast<int>(windowPosition - windowEnd / 2)));
 						break;
 					case Dso::WINDOW_TRIANGULAR:
 						for(unsigned int windowPosition = 0; windowPosition < this->lastBufferSize; windowPosition++)
-							*(this->window + windowPosition) = 2.0 / this->lastBufferSize * (this->lastBufferSize / 2 - abs(windowPosition - windowEnd / 2));
+                            *(this->window + windowPosition) = 2.0 / this->lastBufferSize * (this->lastBufferSize / 2 - abs(static_cast<int>(windowPosition - windowEnd / 2)));
 						break;
 					case Dso::WINDOW_GAUSS:
 						{

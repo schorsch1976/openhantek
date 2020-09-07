@@ -447,7 +447,7 @@ bool DsoWidget::exportAs() {
 	
 	Exporter exporter(this->settings, this->dataAnalyzer, (QWidget *) this->parent());
 	exporter.setFilename(fileDialog.selectedFiles().first());
-	exporter.setFormat((ExportFormat) (EXPORT_FORMAT_PDF + filters.indexOf(fileDialog.selectedFilter())));
+    exporter.setFormat((ExportFormat) (EXPORT_FORMAT_PDF + filters.indexOf(fileDialog.selectedNameFilter())));
 	
 	return exporter.doExport();
 }

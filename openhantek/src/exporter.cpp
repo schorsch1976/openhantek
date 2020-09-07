@@ -97,7 +97,7 @@ bool Exporter::doExport() {
 			else {
 				// Configure the QPrinter
 				((QPrinter *) paintDevice)->setOutputFileName(this->filename);
-				((QPrinter *) paintDevice)->setOutputFormat((this->format == EXPORT_FORMAT_PDF) ? QPrinter::PdfFormat : QPrinter::PostScriptFormat);
+                ((QPrinter *) paintDevice)->setOutputFormat((this->format == EXPORT_FORMAT_PDF) ? QPrinter::PdfFormat : QPrinter::NativeFormat);
 			}
 		}
 		else {
